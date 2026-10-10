@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Vault</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="start-screen" class="screen active">
+      <div class="panel start-panel">
+        <div class="title-wrap">
+          <div class="eyebrow">Heist Adventure</div>
+          <h1>Shadow Vault</h1>
+        </div>
+
+        <div class="avatar-selector">
+          <button class="avatar-btn selected" data-avatar="ghost">
+            <span class="avatar-icon">👤</span>
+            <span>Ghost</span>
+          </button>
+          <button class="avatar-btn" data-avatar="agent">
+            <span class="avatar-icon">🕵️</span>
+            <span>Agent</span>
+          </button>
+          <button class="avatar-btn" data-avatar="ranger">
+            <span class="avatar-icon">🧭</span>
+            <span>Ranger</span>
+          </button>
+        </div>
+
+        <div class="menu-row">
+          <button id="start-game" class="primary-btn">Spiel starten</button>
+          <button id="multi-btn" class="secondary-btn">Mehrspielermodus</button>
+        </div>
+
+        <div class="start-meta">
+          <div><strong>Steuerung:</strong> WASD + Maus</div>
+          <div><strong>Zusatz:</strong> Shift = Rennen</div>
+          <div><strong>Touch:</strong> Joystick + Fingersteuerung</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+      <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+      <div id="hud">
+        <div class="hud-top">
+          <div class="mission-panel panel">
+            <div class="small-label">Mission</div>
+            <div id="level-name">Geisterhaus</div>
+            <div id="objective">Finde das Haus mit 4 Fenstern</div>
+          </div>
+
+          <div class="status-box panel">
+            <div class="small-label">Status</div>
+            <div id="status-text">Mission aktiv</div>
+          </div>
+        </div>
+
+        <div id="action-panel" class="panel action-panel">
+          <button class="action-btn" data-action="explore">Erkunden</button>
+          <button class="action-btn" data-action="vault">Tresor knacken</button>
+          <button class="action-btn" data-action="loot">Item holen</button>
+        </div>
+
+        <div id="minimap" class="panel mini-panel">
+          <canvas id="miniMap" width="170" height="170"></canvas>
+        </div>
+      </div>
+
+      <div id="message-box" class="panel hidden"></div>
+
+      <div id="safe-overlay" class="hidden">
+        <div class="panel safe-panel">
+          <h3>Tresor-Rätsel</h3>
+          <div class="safe-code-display" id="safe-code-display">_ _ _</div>
+          <div class="keypad" id="keypad">
+            <button data-key="1">1</button>
+            <button data-key="2">2</button>
+            <button data-key="3">3</button>
+            <button data-key="4">4</button>
+            <button data-key="5">5</button>
+            <button data-key="6">6</button>
+            <button data-key="7">7</button>
+            <button data-key="8">8</button>
+            <button data-key="9">9</button>
+            <button class="wide" data-key="clear">Löschen</button>
+            <button class="wide" data-key="0">0</button>
+            <button class="wide" data-key="enter">OK</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="touch-controls">
+        <div id="move-stick" class="stick-base">
+          <div id="stick-knob" class="stick-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
